@@ -1,0 +1,33 @@
+/* Base Application Styles */
+body {
+  color: #464847;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.index{
+  width: 940px;
+  margin: 0 auto;
+  padding: 0 35px;
+}
+
+.index .notice {
+  margin: 20px auto;
+  padding: 15px 0;
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0;
+  background: #666;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
