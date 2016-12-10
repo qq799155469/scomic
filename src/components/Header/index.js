@@ -6,13 +6,15 @@ class Header extends React.Component {
 	render () {
 
 		let navs_data = [
-			"漫评","剧本","玩乐","细文"
+			"漫评","剧本","细文","图解"
 		]
+
+		let header_info = "在你的闲暇时光中加入一点小创意。"
 
 		let navs = []
 
-		navs_data.forEach((value,index) => {
-			navs.push(<li className="header-nav" ref={'nav' + index}>{value}</li>)
+		navs_data.forEach((value,key) => {
+			navs.push(<li className="header-nav" ref={'nav' + key}>{value}</li>)
 		})
 
 		return (
@@ -22,6 +24,13 @@ class Header extends React.Component {
 					<ul className="header-navs">
 						{ navs }
 					</ul>
+				</div>
+				<h3 className="header-info">
+					{ header_info }
+				</h3>
+				<div className="header-options">
+					<a className="header-login">登录</a>
+					<a className="header-reg">注册</a>
 				</div>
 			</div>
 		)

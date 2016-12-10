@@ -1,0 +1,57 @@
+@import './var.scss';
+.comic-box{
+	padding: 15px 30px;
+	@include platepadding;
+	.comic-header{
+		width: 100%;
+		overflow: hidden;
+		.comic-title{
+			margin: 0;
+			font-size: 20px;
+			font-weight: 400;
+			float: left;
+		}
+		.comic-count,.comic-more{
+			float: right;
+			font-size: 13px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			margin-right: 10px;
+			border: $buttonborder;
+			cursor: pointer;
+		}
+		.comic-more{
+			margin-right: 0;
+		}
+	}
+	.comic-content{
+		width: 100%;
+		height: 160px;
+		padding-top: 15px;
+		overflow: hidden;
+		.comic-list{
+			width: 980px;
+			.comic-item{
+				width: 120px;
+				margin-right: 20px;
+				float: left;
+				.comic-item-img{
+					width: 100%;
+					height: 110px;
+					float: left;
+					border-radius: 2px;
+					box-shadow: 0 0 2px rgba(0,0,0,.2);
+				}
+				.comic-item-name{
+					width: 100%;
+					margin: 0;
+					float: left;
+					padding: 12px 0;
+					font-size: 16px;
+					@include ahover;
+				}
+			}
+		}	
+	}
+	
+}

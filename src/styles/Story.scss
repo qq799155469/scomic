@@ -1,0 +1,57 @@
+@import 'var.scss';
+.story-box{
+	padding: 15px 30px;
+	@include platepadding;
+	.story-header{
+		width: 100%;
+		overflow: hidden;
+		.story-title{
+			margin: 0;
+			font-size: 20px;
+			font-weight: 400;
+			float: left;
+		}
+		.story-notice{
+			font-size: 13px;
+			color: #999;
+			line-height: 25px;
+			padding-left: 20px;
+			float: left;
+		}
+		.story-more,.story-count{
+			float: right;
+			font-size: 13px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			margin-right: 10px;
+			border: $buttonborder;
+			cursor: pointer;
+		}
+		.story-more{
+			margin-right: 0;
+		}
+	}
+	.story-content{
+		width: 630px;
+		height: 220px;
+		padding-top: 15px;
+		overflow: hidden;
+		.story-list{
+			width: 100%;
+			float: left;
+			.story-item{
+				width: 200px;
+				float: left;
+				margin-right: 10px;
+				max-height: 30px;
+				overflow: hidden;
+				.story-link{
+					@include ahover;
+					color: $blue;
+					line-height: 30px;
+				}
+			}
+		}
+		
+	}
+}

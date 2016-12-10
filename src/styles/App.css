@@ -1,15 +1,19 @@
 /* Base Application Styles */
 body {
-  color: #464847;
   background: #fff;
   margin: 0;
   padding: 0;
+  color: #464847;
+  font-family: ;
+  box-sizing: border-box;
 }
 
 .index{
   width: 940px;
   margin: 0 auto;
   padding: 0 35px;
+  // border-left: 1px dashed #333;
+  // border-right: 1px dashed #333;
 }
 
 .index .notice {
@@ -30,4 +34,9 @@ li{
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+p{
+  margin: 0;
+  padding: 0;
 }

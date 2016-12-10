@@ -1,0 +1,20 @@
+$green: #74b0a1;
+$blue: #4b74a7;
+$red: #dc4f43;
+$yellow: #cf832a;
+$gray: #464847;
+$lightgray: #d2d6d7;
+$buttonborder: 1px solid #999;
+@mixin ahover{
+	cursor: pointer;
+	&:hover{
+		color: $green;
+	}
+	&:active{
+		color: $lightgray;
+	}
+}
+
+@mixin platepadding{
+	padding-bottom: 30px;
+}

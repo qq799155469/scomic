@@ -1,0 +1,84 @@
+@import './var.scss';
+.graphic-box{
+	padding: 15px 30px;
+	@include platepadding;
+	.graphic-header{
+		width: 100%;
+		overflow: hidden;
+		.graphic-title{
+			margin: 0;
+			font-size: 20px;
+			font-weight: 400;
+			float: left;
+		}
+		.graphic-notice{
+			font-size: 13px;
+			color: #999;
+			line-height: 25px;
+			padding-left: 20px;
+			float: left;
+		}
+		.graphic-more,.graphic-count{
+			float: right;
+			font-size: 13px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			margin-right: 10px;
+			border: $buttonborder;
+			cursor: pointer;
+		}
+		.graphic-more{
+			margin-right: 0;
+		}
+	}
+	.graphic-content{
+		width: 100%;
+		height: 200px;
+		padding-top: 15px;
+		overflow: hidden;
+		.graphic-list{
+			width: 630px;
+			float: left;
+			.graphic-item{
+				width: 200px;
+				float: left;
+				margin-right: 10px;
+				.graphic-item-title{
+					font-size: 16px;
+				}
+				.graphic-item-content{
+					width: 190px;
+					height: 130px;
+					margin-right: 20px;
+					// border: 1px solid $gray;
+					position: relative;
+					.graphic-item-img{
+						width: 100%;
+						height: 100%;
+						float: left;
+					}
+					.graphic-item-master{
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(0,0,0,.3);
+					}
+					.graphic-item-des{
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						color: #fff;
+						width: 100%;
+						height: 40px;
+						font-size: 12px;
+						background-color: rgba(0,0,0,.3);
+						padding: 10px;
+						box-sizing: border-box;
+					}
+				}
+			}
+		}
+	}
+}
