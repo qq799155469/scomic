@@ -8,7 +8,7 @@
 
 const path = require('path');
 const srcPath = path.join(__dirname, '/../src');
-const dfltPort = 8000;
+const dfltPort = 8080;
 
 /**
  * Get the default modules object for webpack
@@ -16,25 +16,25 @@ const dfltPort = 8000;
  */
 function getDefaultModules() {
   return {
-    // preLoaders: [
-    //   {
-    //     test: /\.(js|jsx)$/,
-    //     include: srcPath,
-    //     loader: 'eslint-loader'
-    //   }
-    // ],
+    preLoaders: [
+      {
+        test: /\.(js|jsx)$/,
+        include: srcPath,
+        loader: 'eslint-loader'
+      }
+    ],
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!autoprefixer-loader'
       },
       {
         test: /\.sass/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
@@ -43,6 +43,10 @@ function getDefaultModules() {
       {
         test: /\.styl/,
         loader: 'style-loader!css-loader!stylus-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,

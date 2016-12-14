@@ -14,7 +14,7 @@ class Header extends React.Component {
 		let navs = []
 
 		navs_data.forEach((value,key) => {
-			navs.push(<li className="header-nav" ref={'nav' + key}>{value}</li>)
+			navs.push(<li className="header-nav" key={key} ref={'nav' + key}>{value}</li>)
 		})
 
 		return (

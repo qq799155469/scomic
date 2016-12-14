@@ -3,14 +3,27 @@ require('styles/Comic.scss')
 
 class Comic extends React.Component {
 
-	constructor () {
+	constructor (props) {
 		super()
+		this.state = {
+			datas: []
+		}
 	}
 
-	getInitialState() {
-	    return {
-	          
-	    }
+	componentDidMount() {
+		let self = this
+		fetch('http://211.149.195.231:3000/api/comic/list',{ methods: 'get' })
+			.then((res) => {
+				return res.json()
+			}).then((json) => {
+				let data = []
+				for(let i in json.data){
+					data.push(json.data[i])			
+				}
+				self.setState({
+					datas: data
+				})	
+			})
 	}
 
 	render () {
@@ -30,11 +43,10 @@ class Comic extends React.Component {
 			{title: 'Fate/Zero',src: 'images/6.jpg',count: 123},
 			{title: '夏洛特',src: 'images/7.jpg',count: 153},
 		]
-
-		datas.forEach((value,index) => {
+		this.state.datas.forEach((value,key) => {
 			list.push(
-				<li className="comic-item" ref={'item' + index}>
-					<img className="comic-item-img" src={value.src}/>
+				<li className="comic-item" key={key} ref={'item' + key}>
+					<img className="comic-item-img" src={value.image}/>
 					<p className="comic-item-name">{value.title}</p>
 				</li>
 			)

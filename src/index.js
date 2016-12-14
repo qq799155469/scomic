@@ -1,7 +1,20 @@
 import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/Main';
+import fetch from 'isomorphic-fetch'
+import { Provider } from 'react-redux'
+import store from './stores'
+// import route from './routes'
+import App from './components/Main'
+
+store.subscribe(() => {
+  //console.log(store.getState())
+})
 
 // Render the main component into the dom
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('app')
+)

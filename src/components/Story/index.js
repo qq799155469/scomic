@@ -32,9 +32,9 @@ class Story extends React.Component {
 			{title: '……',link: '',id: 5}
 		]
 
-		datas.forEach((value,index) => {
+		datas.forEach((value,key) => {
 			list.push(
-				<li className="story-item">
+				<li className="story-item" key={key}>
 					<a className="story-link">{value.title}</a>
 				</li>
 			)

@@ -23,9 +23,9 @@ class Script extends React.Component {
 			{title: '月华似练',sort: '古风',views: 2055}
 		]
 
-		datas.forEach((value,index) => {
+		datas.forEach((value,key) => {
 			list.push(
-				<li className="script-item">
+				<li className="script-item" key={key}>
 					<img className="script-item-img" src={value.src}/>
 					<div className="script-item-content">
 						<p className="script-item-title">{value.title}</p>
