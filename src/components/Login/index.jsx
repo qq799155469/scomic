@@ -26,7 +26,6 @@ class Login extends React.Component {
 		return (
 			<div className="login-box">
 				<div className="login-poster">
-					<img className="login-poster-img" src="../../../images/login.jpg"/>
 				</div>
 				<div className="login-container">
 					
@@ -45,7 +44,7 @@ class Login extends React.Component {
 					<div className="login-option">
 						<div className="login-option-check">
 							<input id="login-check" type="checkbox" />
-							<label htmlFor="login-check">记住密码</label>
+							<label htmlFor="login-check">记住账号</label>
 							<a>《免责声明》</a>
 						</div>
 						<button className="login-btn" onClick={() => dispatch(LoginAction(this.state.username,this.state.pwd))}>登陆</button>

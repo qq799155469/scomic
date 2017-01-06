@@ -16,8 +16,8 @@ const Container = (props) => {
 	)
 }
 //开发环境使用hash模式,线上环境使用browser模式
-const history = process.env.NODE_ENV !== 'production' ? hashHistory : browserHistory;
-
+// const history = process.env.NODE_ENV !== 'production' ? hashHistory : browserHistory;
+const history = hashHistory;
 const routes = (
 	<Router history={history}>
 		<Route path="/" component={Container}>

@@ -1,24 +1,25 @@
 @import 'var.scss';
 .login-box{
 	width: 100%;
-	padding-top: 50px;
+	height: 400px;
+	background-color: #fff;
+	padding: 50px 30px;
 	box-sizing: border-box;
 	.login-poster{
 		width: 65%;
+		height: 100%;
 		float: left;
 		overflow: hidden;
 		box-sizing: border-box;
-		.login-poster-img{
-			width: 100%;
-			border-radius: 2px;
-		}
+		background-image: url(../images/login.jpg);
+		background-size: 100%;
 	}
 	.login-container{
 		width: 35%;
 		height: 100%;
 		float: right;
 		box-sizing: border-box;
-		padding-left: 50px;
+		padding-left: 30px;
 		.login-logo{
 			font-weight: 400;
 			font-size: 28px;

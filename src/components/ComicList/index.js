@@ -12,7 +12,8 @@ class ComicList extends React.Component {
 			list: [],
 			start: 0,
 			limit: 10,
-			datas: []
+			datas: [],
+			count: 0
 		}
 	}
 
@@ -38,6 +39,37 @@ class ComicList extends React.Component {
 				})
 			}
 		})
+
+		fetch(api_addr + 'comic/count',{ method: 'post' })
+			.then((res) => {
+				if(res.ok){
+					res.json().then((json) =>{
+						self.setState({
+							count: json.data.count
+						})
+					})
+				}
+			})
+	}
+
+	goDetail(id) {
+		let self = this
+		fetch(api_addr + 'view/comic',{ 
+			method: 'post',
+			mode: "cors",
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
+			body: 'id=' + id 
+		}).then((res) => {
+				if(res.ok){
+					res.json().then((json) => {
+
+					})
+				}
+			})
+		// history.pushState(null,'/comicdetail/' + id)
+		window.location.hash = '/comicdetail/' + id
 	}
 
 	render () {
@@ -46,6 +78,8 @@ class ComicList extends React.Component {
 
 		let datas = this.state.datas
 
+		let self = this
+
 		datas.forEach(function(value,index){
 			list.push(
 				<li className="cl-list-item" key={index}>
@@ -53,11 +87,9 @@ class ComicList extends React.Component {
 						<img className="cl-list-item-face" src={value.image}/>
 					</div>
 					<div className="cl-list-item-right">
-						<Link to={`/comicdetail/${value.id}`}>
-							<a className="cl-list-item-name">
-								{value.title}
-							</a>
-						</Link>
+						<a className="cl-list-item-name" onClick={self.goDetail.bind(self,value.id)}>
+							{value.title}
+						</a>
 						<a className="cl-list-item-author">
 							作者：{value.author}
 						</a>
@@ -81,7 +113,7 @@ class ComicList extends React.Component {
 
 				<div className="cl-list">
 					<div className="cl-list-header">
-						<h3 className="cl-list-header-title">漫评列表：</h3>
+						<h3 className="cl-list-header-title">漫评列表(<span className="cl-list-header-count">{this.state.count}部</span>)：</h3>
 					</div>
 					
 					<ul className="cl-list-box">

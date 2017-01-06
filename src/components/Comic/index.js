@@ -58,7 +58,7 @@ class Comic extends React.Component {
 				}
 			})
 		// history.pushState(null,'/comicdetail/' + id)
-		window.location.hash = '#/comicdetail/' + id
+		window.location.hash = '/comicdetail/' + id
 	}
 
 	addView(id) {
@@ -75,11 +75,7 @@ class Comic extends React.Component {
 			list.push(
 				<li className="comic-item" key={key} ref={'item' + key}>
 					<img className="comic-item-img" src={value.image}/>
-					<p onClick={this.goDetail
-
-
-
-						.bind(this,value.id)} className="comic-item-name">{value.title}</p>
+					<p onClick={this.goDetail.bind(this,value.id)} className="comic-item-name">{value.title}</p>
 					<p className="comic-item-like"><span>{value.like}</span>人喜欢</p>
 				</li>
 			)
@@ -91,7 +87,10 @@ class Comic extends React.Component {
 					<h3	className="comic-title">
 						{title}
 					</h3>
-					<Link className="comic-more" to={`/comiclist`}>更多</Link>
+					<p className="comic-notice">
+						看漫不评，要你何用
+					</p>
+					<Link className="comic-more" to={`/comiclist`}><i className="comic-more-icon"></i>更多</Link>
 					<a className="comic-count">{this.state.count}个{title}</a>
 				</div>
 				<div className="comic-content">

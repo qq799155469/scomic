@@ -21,6 +21,7 @@ $buttonborder: 1px solid #999;
 
 @mixin btnhover{
 	cursor: pointer;
+	transition: all .35s;
 	&:hover{
 		color: #fff;
 		background-color: $blue;

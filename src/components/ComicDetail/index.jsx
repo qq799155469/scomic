@@ -16,10 +16,11 @@ class ComicDetail extends React.Component {
 			showPublish: false,
 			comic_id: this.props.params.id
 		}
-		this.toggleTopic = this.toggleTopic.bind(this)
+		this.toggleComment = this.toggleComment.bind(this)
 	}
 
 	componentDidMount() {
+		let self = this
 		let { dispatch } = this.props
 		dispatch(GetComicDetail(this.props.params.id))
 //详情加载
@@ -44,19 +45,21 @@ class ComicDetail extends React.Component {
 			},
 			body: 'limit=' + this.state.limit + '&start=' + this.state.start + '&comic_id=' + this.props.params.id
 		}).then((res) => {
-			return res.json()
-		}).then((json) => {
-			let data = []
-			for(let i in json.data){
-				data.push(json.data[i])			
+			if(res.ok){
+				res.json().then((json) => {
+					let data = []
+					for(let i = 0;i < json.data.length;i ++){
+						data.push(json.data[i])
+					}
+					self.setState({
+						list: data
+					})
+				})
 			}
-			this.setState({
-				list: data
-			})	
 		})
 	}
 
-	toggleTopic() {
+	toggleComment() {
 		this.setState({
 			showPublish: !this.state.showPublish
 		})
@@ -73,9 +76,8 @@ class ComicDetail extends React.Component {
 				<li className="cd-comment-item" key={index}>
 					<div className="cd-comment-item-header">
 						<img className="cd-comment-face" src={value.user_face}/>
-						<span className="cd-comment-author">{value.author}</span>
+						<span className="cd-comment-author">{value.user_name}</span>
 						<span className="cd-comment-time">{value.create_time}</span>
-						<span className="cd-comment-topic">来自主题：{value.topic}</span>
 					</div>
 
 					<p className="cd-comment-content">
@@ -83,7 +85,7 @@ class ComicDetail extends React.Component {
 					</p>
 					<div className="cd-comment-option">
 						<a className="cd-comment-like">
-							顶&nbsp; {value.star}
+							<i className="cd-comment-like-icon"></i>&nbsp; {value.star}
 						</a>
 					</div>
 				</li>
@@ -93,7 +95,7 @@ class ComicDetail extends React.Component {
 		return (
 			<div className="cd-box">
 
-				{ this.state.showPublish && <ComicComment comicid={this.state.comic_id} /> }
+				{ this.state.showPublish && <ComicComment comicid={this.state.comic_id} togglecomment={this.toggleComment.bind(this)} /> }
 				<div className="cd-header">
 					
 					<div className="cd-poster-box">
@@ -142,7 +144,7 @@ class ComicDetail extends React.Component {
 				<div className="cd-comment">
 					<div className="cd-comment-header">
 						<h3 className="cd-comment-title">漫评：</h3>
-						<span className="cd-comment-publish" onClick={this.toggleTopic}>发表主题</span>
+						<span className="cd-comment-publish" onClick={this.toggleComment}>发表主题</span>
 					</div>
 					
 					<ul className="cd-comment-list">

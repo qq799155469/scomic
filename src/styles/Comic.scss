@@ -11,6 +11,13 @@
 			font-weight: 400;
 			float: left;
 		}
+		.comic-notice{
+			font-size: 13px;
+			color: #999;
+			line-height: 25px;
+			padding-left: 20px;
+			float: left;
+		}
 		.comic-count,.comic-more{
 			float: right;
 			font-size: 13px;
@@ -22,6 +29,18 @@
 		}
 		.comic-more{
 			margin-right: 0;
+			text-decoration: none;
+			color: #333;
+			.comic-more-icon{
+			    float: left;
+			    margin-right: 5px;
+			    width: 14px;
+			    height: 14px;
+			    background-size: 100%;
+			    background-repeat: no-repeat;
+				display: inline-block;
+				background-image: url(../images/list.svg);
+			}
 		}
 	}
 	.comic-content{

@@ -119,7 +119,12 @@
 			.cd-comment-item{
 				width: 100%;
 				float: left;
-				padding-bottom: 15px;
+				box-sizing: border-box;
+				padding: 15px;
+				transition: all .35s;
+				&:hover{
+					background-color: rgba(0,0,0,.05);
+				}
 				.cd-comment-item-header{
 					width: 100%;
 					height: 30px;
@@ -127,7 +132,7 @@
 					position: relative;
 					line-height: 30px;
 					font-size: 14px;
-					padding-bottom: 20px;
+					padding-bottom: 10px;
 					.cd-comment-face{
 						width: 30px;
 						height: 30px;
@@ -139,13 +144,15 @@
 					.cd-comment-author{
 						width: 100px;
 						height: 100%;
-						padding-left: 10px;
+						padding-left: 15px;
 						float: left;
 					}
 					.cd-comment-time{
-						width: 100px;
+						width: 150px;
 						height: 100%;
 						float: left;
+						color: #999;
+						font-size: 13px;
 					}
 					.cd-comment-topic{
 						padding-left: 200px;
@@ -157,17 +164,32 @@
 					font-size: 13px;
 					width: 100%;
 					float: left;
-					line-height: 19px;
+					line-height: 1.5;
 				}
 				.cd-comment-option{
 					width: 100%;
 					float: left;
-					padding-top: 30px;
+					padding-top: 10px;
 					.cd-comment-like{
 						float: right;
 						font-size: 13px;
 						cursor: pointer;
-						margin-right: 30px;
+						margin-right: 15px;
+						border: 1px solid $blue;
+						border-radius: 8px;
+						padding: 2px 6px;
+						color: $blue;
+						@include ahover;
+						.cd-comment-like-icon{
+							float: left;
+						    margin-right: 2px;
+						    width: 13px;
+						    height: 13px;
+						    background-size: 100%;
+						    background-repeat: no-repeat;
+							display: inline-block;
+							background-image: url(../images/like.svg);
+						}
 					}
 				}
 			}

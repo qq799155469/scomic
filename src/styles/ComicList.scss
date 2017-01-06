@@ -19,6 +19,11 @@
 				padding-bottom: 15px;
 				color: $gray;
 				letter-spacing: 2px;
+				.cl-list-header-count{
+					font-size: 13px;
+					color: $red;
+					vertical-align: middle;
+				}
 			}
 		}
 		.cl-list-box{
@@ -28,6 +33,7 @@
 				width: 33.3%;
 				float: left;
 				padding-bottom: 30px;
+				height: 120px;
 				.cl-list-item-left{
 					width: 30%;
 					float: left;
