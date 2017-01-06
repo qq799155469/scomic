@@ -15,6 +15,24 @@ $buttonborder: 1px solid #999;
 	}
 }
 
+@mixin blockborder{
+	border: 1px solid rgba(0,0,0,.08);
+}
+
+@mixin btnhover{
+	cursor: pointer;
+	&:hover{
+		color: #fff;
+		background-color: $blue;
+		box-shadow: 0 0 1px #333;
+	}
+	&:active{
+		color: $lightgray;
+		background-color: $green;
+		box-shadow: none;
+	}
+}
+
 @mixin platepadding{
 	padding-bottom: 30px;
 }

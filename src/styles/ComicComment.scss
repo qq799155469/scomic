@@ -1,0 +1,89 @@
+@import './var.scss';
+.ComicComment-box{
+	position: fixed;
+	z-index: 1000;
+	left: 50%;
+	margin-left: -230px;
+	top: 200px;
+	width: 460px;
+	padding: 30px;
+	overflow: hidden;
+	box-shadow: 0px 0px 18px rgba(0,0,0,.05);
+	border: 1px solid #efefef;
+	background: #fff;
+	border-radius: 2px;
+	&>i{
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		color: #666;
+		text-shadow: 1px 1px 2px #666;
+		display: block;
+		width: 15px;
+		height: 15px;
+		font-size: 20px;
+		font-style: normal;
+		text-align: center;
+		cursor: pointer;
+		line-height: 15px;
+	}
+	.ComicComment-header{
+		position: relative;
+		width: 100%;
+		height: 50px;
+		float: left;
+		.ComicComment-face{
+			width: 50px;
+			height: 50px;
+			float: left;
+			.ComicComment-face-img{
+				width: 100%;
+				height: 100%;
+			}
+		}
+		.ComicComment-info{
+			float: left;
+			width: 350px;
+			height: 100%;
+			box-sizing: border-box;
+			padding-left: 15px;
+			.ComicComment-name{
+
+			}
+			.ComicComment-intro{
+
+			}
+		}
+	}
+	.ComicComment-text{
+		width: 100%;
+		padding-top: 30px;
+		overflow: hidden;
+		box-sizing: border-box;
+		.ComicComment-textarea{
+			width: 100%;
+			height: 120px;
+			box-sizing: border-box;
+			outline: none;
+			padding: 10px;
+			font-size: 13px;
+			border: 1px solid rgba(0,0,0,.1);
+			border-radius: 3px;
+			box-shadow: inset 0 0 10px rgba(0,0,0,.02)
+		}
+		.ComicComment-option{
+			padding: 25px 0;
+			.ComicComment-submit{
+				color: #fff;
+				float: right;
+				width: 80px;
+				height: 30px;
+				outline: none;
+				border: none;
+				background-color: $blue;
+				border-radius: 2px;
+				@include btnhover;
+			}
+		}
+	}
+}

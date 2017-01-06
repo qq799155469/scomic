@@ -2,7 +2,10 @@ import React from 'react'
 require('styles/Graphic.scss')
 
 class Graphic extends React.Component {
-	
+	constructor(props) {
+	    super(props);
+	    
+	}
 	render () {
 
 		let title = '图解'
@@ -59,4 +62,4 @@ Graphic.defaultProps = {
 
 }
 
-export default Graphic
+module.exports = Graphic

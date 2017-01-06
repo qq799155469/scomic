@@ -1,5 +1,5 @@
 'use strict';
-
+let babelpolyfill = require('babel-polyfill')
 let path = require('path');
 let webpack = require('webpack');
 let baseConfig = require('./base');

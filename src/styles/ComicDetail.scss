@@ -1,0 +1,176 @@
+@import 'var.scss';
+.cd-box{
+	padding: 50px 60px;
+	background-color: #fff;
+	border-radius: 2px;
+	@include blockborder;
+	.cd-header{
+		width: 100%;
+		height: 240px;
+		overflow: hidden;
+		position: relative;
+		.cd-poster-box{
+			width: 190px;
+			height: 100%;
+			float: left;
+			.cd-poster{
+				width: 100%;
+				height: 100%;
+				border-radius: 3px;
+				box-shadow: 0 0 3px rgba(0,0,0,.2);
+			}
+		}
+		.cd-intro{
+			float: left;
+			padding: 0 30px;
+			width: 200px;
+			height: 100%;
+			text-align: left;
+			.cd-intro-title{
+				color: #333;
+				width: 100%;
+				margin: 0;
+				font-size: 18px;
+				font-weight: 400;
+				padding-bottom: 20px;
+			}
+			.cd-intro-author{
+				width: 100%;
+				font-size:	14px;
+				padding-bottom: 20px;
+				&>span{
+					color: $green;
+					cursor: pointer;
+				}
+			}
+			.cd-intro-type{
+				width: 100%;
+				font-size:	14px;
+				padding-bottom: 20px;
+				&>span{
+					color: $green;
+					cursor: pointer;
+				}
+			}
+			.cd-intro-text{
+				width: 92%;
+				font-size:	13px;
+				max-height: 128px;
+				overflow: hidden;
+				line-height: 26px;
+				overflow: hidden;
+				&:hover{
+					width: 100%;
+					overflow: auto;
+				}
+			}
+		}
+
+		.cd-score{
+			float: left;
+			padding: 0 30px;
+			font-size: 13px;
+			.cd-score-year,.cd-score-place,.cd-score-views{
+				padding-bottom: 20px;
+			}
+			.cd-score-year{
+				padding-top: 2px;
+			}
+			.cd-score-place{
+				&>span{
+					color: $green;
+					cursor: pointer;
+				}
+			}
+			.cd-score-view{
+				border-top: 1px dashed #ccc;
+				padding-top: 20px;
+			}
+			.cd-score-view,.cd-score-like,.cd-score-grade{
+				padding-bottom: 10px;
+				font-size: 12px;
+			}
+		}
+	}
+	.cd-comment{
+		width: 100%;
+		padding-top: 20px;
+		.cd-comment-header{
+			padding-bottom: 45px;
+			width: 100%;
+			margin: 20px 0;
+			.cd-comment-title{
+				font-size: 20px;
+				font-weight: 400;
+				float: left;
+				width: 20%;
+				margin: 0;
+			}
+			.cd-comment-publish{
+				float: right;
+				font-size: 16px;
+				cursor: pointer;
+				@include ahover;
+			}
+		}
+		.cd-comment-list{
+			width: 100%;
+			overflow: hidden;
+			.cd-comment-item{
+				width: 100%;
+				float: left;
+				padding-bottom: 15px;
+				.cd-comment-item-header{
+					width: 100%;
+					height: 30px;
+					float: left;
+					position: relative;
+					line-height: 30px;
+					font-size: 14px;
+					padding-bottom: 20px;
+					.cd-comment-face{
+						width: 30px;
+						height: 30px;
+						border: 1px solid $gray;
+						box-sizing: border-box;
+						float: left;
+						border-radius: 50%;
+					}
+					.cd-comment-author{
+						width: 100px;
+						height: 100%;
+						padding-left: 10px;
+						float: left;
+					}
+					.cd-comment-time{
+						width: 100px;
+						height: 100%;
+						float: left;
+					}
+					.cd-comment-topic{
+						padding-left: 200px;
+						text-decoration: underline;
+						cursor: pointer;
+					}
+				}
+				.cd-comment-content{
+					font-size: 13px;
+					width: 100%;
+					float: left;
+					line-height: 19px;
+				}
+				.cd-comment-option{
+					width: 100%;
+					float: left;
+					padding-top: 30px;
+					.cd-comment-like{
+						float: right;
+						font-size: 13px;
+						cursor: pointer;
+						margin-right: 30px;
+					}
+				}
+			}
+		}
+	}
+}

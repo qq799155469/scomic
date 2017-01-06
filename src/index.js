@@ -1,20 +1,22 @@
+import "babel-polyfill"
 import 'core-js/fn/object/assign';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import fetch from 'isomorphic-fetch'
 import { Provider } from 'react-redux'
-import store from './stores'
-// import route from './routes'
-import App from './components/Main'
+import routes from './routes/routes'
+import store from 'stores'
 
-store.subscribe(() => {
-  //console.log(store.getState())
-})
+
+const Root = (props) => {
+	return (
+		<div>
+			<Provider store={store}>
+				{routes}
+			</Provider>
+		</div>
+	)
+}
 
 // Render the main component into the dom
-ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
-	document.getElementById('app')
-)
+render(<Root />,document.getElementById('app'))

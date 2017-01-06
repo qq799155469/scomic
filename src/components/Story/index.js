@@ -1,8 +1,34 @@
 import React from 'react'
+import { api_addr } from '../../global/global'
+import { Link } from 'react-router'
 require('styles/Story.scss')
 
 class Story extends React.Component {
-	
+	constructor(props) {
+	    super(props);
+	    this.state = {
+	    	datas: []
+	    }
+	}
+
+	componentDidMount() {
+		let self = this
+		fetch(api_addr + 'story/list_simple',{
+			method: 'post'
+		}).then((res) => {
+			if(res.ok){
+				res.json().then((json) => {
+					let data = []
+					for(let i in json.data){
+						data.push(json.data[i])			
+					}
+					self.setState({
+						datas: data
+					})	
+				})
+			}
+		})
+	}
 	render () {
 
 		let title = '细文'
@@ -12,30 +38,13 @@ class Story extends React.Component {
 		let list = []
 
 		let datas = [
-			{title: '漫长的中场休息',link: '',id: 5},
-			{title: '读在大好时光',link: '',id: 5},
-			{title: '愿所有等待终不被辜负',link: '',id: 5},
-			{title: '生活的哲学',link: '',id: 5},
-			{title: '人人都有妄想症',link: '',id: 5},
-			{title: '等你，在下一个路口',link: '',id: 5},
-			{title: '爱因斯坦',link: '',id: 5},
-			{title: '命运轮转之日',link: '',id: 5},
-			{title: '执笔泼墨，只为那一世的眷恋',link: '',id: 5},
-			{title: '伍迪~艾伦谈话录',link: '',id: 5},
-			{title: '冬夜',link: '',id: 5},
-			{title: '生活的哲学',link: '',id: 5},
-			{title: '绝世唐门',link: '',id: 5},
-			{title: '完美世界',link: '',id: 5},
-			{title: '武动乾坤',link: '',id: 5},
-			{title: '以梦为马',link: '',id: 5},
-			{title: '秋深处，道声珍重',link: '',id: 5},
-			{title: '……',link: '',id: 5}
+			
 		]
 
-		datas.forEach((value,key) => {
+		this.state.datas.forEach((value,key) => {
 			list.push(
 				<li className="story-item" key={key}>
-					<a className="story-link">{value.title}</a>
+					<Link to={`/storydetail/${value.id}`} className="story-link"><p className="comic-item-name">{value.title}</p></Link>
 				</li>
 			)
 		})
@@ -67,4 +76,4 @@ Story.defaultProps = {
 
 }
 
-export default Story
+module.exports = Story

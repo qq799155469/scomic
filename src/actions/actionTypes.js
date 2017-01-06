@@ -1,0 +1,8 @@
+export const FETCH_ONLINE = 'FETCH_ONLINE'
+export const RECEIVE_ONLINE = 'RECEIVE_ONLINE'
+
+export const LOGIN = 'LOGIN'
+export const LOGINOUT = 'LOGINOUT'
+
+export const GET_COMIC_DETAIL = 'GET_COMIC_DETAIL'
+export const GET_STORY_DETAIL = 'GET_STORY_DETAIL'

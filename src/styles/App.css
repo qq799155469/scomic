@@ -1,19 +1,29 @@
 /* Base Application Styles */
 body {
-  background: #fff;
+  background: #f5f5f5;
   margin: 0;
   padding: 0;
-  color: #464847;
-  font-family: ;
+  color: #333;
+  font-family: '微软雅黑';
   box-sizing: border-box;
 }
 
-.index{
+#app{
   width: 940px;
   margin: 0 auto;
   padding: 0 35px;
+}
+
+.index{
   // border-left: 1px dashed #333;
   // border-right: 1px dashed #333;
+  // border-radius: 2px;
+}
+
+.container{
+  border-radius: 2px;
+  @include blockborder;
+  background-color: #fff;
 }
 
 .index .notice {

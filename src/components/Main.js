@@ -3,17 +3,19 @@ require('styles/App.css')
 
 import React from 'react'
 
-import Header from './Header'
 import Comic from './Comic'
 import Script from './Script'
 import Story from './Story'
 import Graphic from './Graphic'
 
 class AppComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    
+  }
   render() {
     return (
-      <div className="index">
-      	<Header/>
+      <div className="container">
       	<Comic/>
       	<Script/>
       	<Story/>
@@ -26,4 +28,4 @@ class AppComponent extends React.Component {
 AppComponent.defaultProps = {
 };
 
-export default AppComponent;
+module.exports = AppComponent

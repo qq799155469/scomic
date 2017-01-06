@@ -1,0 +1,72 @@
+@import './var.scss';
+.cl-box{
+	width: 100%;
+	padding: 30px;
+	background-color: #fff;
+	overflow: hidden;
+	box-sizing: border-box;
+	border-radius: 2px;
+	@include blockborder;
+	.cl-header{
+		margin: 0;
+	}
+	.cl-list{
+		width: 100%;
+		overflow: hidden;
+		.cl-list-header{
+			.cl-list-header-title{
+				font-weight: 400;
+				padding-bottom: 15px;
+				color: $gray;
+				letter-spacing: 2px;
+			}
+		}
+		.cl-list-box{
+			padding: 10px;
+			overflow: hidden;
+			.cl-list-item{
+				width: 33.3%;
+				float: left;
+				padding-bottom: 30px;
+				.cl-list-item-left{
+					width: 30%;
+					float: left;
+					.cl-list-item-face{
+						width: 100%;
+						border-radius: 3px;
+						box-shadow: 0 0 8px rgba(0,0,0,.18);
+					}
+				}
+				.cl-list-item-right{
+					padding: 0 25px;
+					box-sizing: border-box;
+					width: 70%;
+					float: left;
+					.cl-list-item-name{
+						@include ahover;
+						width: 100%;
+						float: left;
+						max-height: 46px;
+						overflow: hidden;
+						padding-bottom: 15px;
+					}
+					.cl-list-item-author{
+						width: 100%;
+						float: left;
+						padding-bottom: 8px;
+						font-size: 14px;
+					}
+					.cl-list-item-type{
+						width: 100%;
+						float: left;
+						padding-bottom: 8px;
+						font-size: 14px;
+						&>span{
+							color: $blue;
+						}
+					}
+				}
+			}
+		}
+	}
+}

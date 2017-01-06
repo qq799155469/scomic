@@ -2,7 +2,10 @@ import React from 'react'
 require('styles/Script.scss')
 
 class Script extends React.Component {
-	
+	constructor(props) {
+	    super(props);
+	    
+	}
 	render () {
 
 		let title = '剧本'
@@ -67,4 +70,4 @@ Script.defaultProps = {
 
 }
 
-export default Script
+module.exports = Script

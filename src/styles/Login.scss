@@ -1,0 +1,86 @@
+@import 'var.scss';
+.login-box{
+	width: 100%;
+	padding-top: 50px;
+	box-sizing: border-box;
+	.login-poster{
+		width: 65%;
+		float: left;
+		overflow: hidden;
+		box-sizing: border-box;
+		.login-poster-img{
+			width: 100%;
+			border-radius: 2px;
+		}
+	}
+	.login-container{
+		width: 35%;
+		height: 100%;
+		float: right;
+		box-sizing: border-box;
+		padding-left: 50px;
+		.login-logo{
+			font-weight: 400;
+			font-size: 28px;
+			letter-spacing: 5px;
+			margin: 0;
+			color: $blue;
+			padding-bottom: 30px;
+		} 
+		.login-username,.login-pwd{
+			width: 100%;
+			position: relative;
+			padding-bottom: 28px;
+			.login-input{
+				width: 100%;
+				padding: 5px 20px;
+				height: 35px;
+				font-size: 14px;
+				box-sizing: border-box;
+				border-radius: 20px;
+				outline: none;
+				border: 1px solid rgba(0,0,0,.2);
+				box-shadow: inset 0px 0px 2px rgba(0,0,0,.18);
+				background-color: rgba(0,0,0,.04);
+			}
+			.login-icon{
+				position: absolute;
+				left: 10px;
+				top: 15px;
+			}
+		}
+		.login-option{
+			font-size: 13px;
+			.login-option-check{
+				width: 70%;
+				float: left;
+				input{
+					width: 30px;
+					vertical-align: text-bottom;
+				}
+				label{
+					vertical-align: text-bottom;
+					cursor: pointer;
+				}
+				a{
+					width: 100%;
+					display: block;
+					line-height: 20px;
+					text-decoration: underline;
+					padding-left: 25px;
+				}
+			}
+			.login-btn{
+				width: 30%;
+				float: right;
+				border: none;
+				height: 30px;
+				border-radius: 15px; 
+				color: #fff;
+				outline: none;
+				background-color: rgba(0,0,0,.5);
+				@include btnhover;
+			}
+		}
+	}
+}

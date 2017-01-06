@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import { api_addr } from '../../global/global'
 require('styles/Comic.scss')
 
 class Comic extends React.Component {
@@ -6,13 +9,14 @@ class Comic extends React.Component {
 	constructor (props) {
 		super()
 		this.state = {
-			datas: []
+			datas: [],
+			count: 0
 		}
 	}
 
 	componentDidMount() {
 		let self = this
-		fetch('http://211.149.195.231:3000/api/comic/list',{ methods: 'get' })
+		fetch(api_addr + 'comic/list',{ method: 'post' })
 			.then((res) => {
 				return res.json()
 			}).then((json) => {
@@ -24,30 +28,59 @@ class Comic extends React.Component {
 					datas: data
 				})	
 			})
+
+		fetch(api_addr + 'comic/count',{ method: 'post' })
+			.then((res) => {
+				if(res.ok){
+					res.json().then((json) =>{
+						self.setState({
+							count: json.data.count
+						})
+					})
+				}
+			})
+	}
+
+	goDetail(id) {
+		let self = this
+		fetch(api_addr + 'view/comic',{ 
+			method: 'post',
+			mode: "cors",
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
+			body: 'id=' + id 
+		}).then((res) => {
+				if(res.ok){
+					res.json().then((json) => {
+
+					})
+				}
+			})
+		// history.pushState(null,'/comicdetail/' + id)
+		window.location.hash = '#/comicdetail/' + id
+	}
+
+	addView(id) {
+		
 	}
 
 	render () {
 
 		let title = "漫评"
 
-		let comic_count = '1255'
-
 		let list = []
 
-		let datas = [
-			{title: '你的名字。',src: 'images/1.jpg',count: 51},
-			{title: '未闻花名',src: 'images/2.jpg',count: 4845},
-			{title: '你不在的街道',src: 'images/3.jpg',count: 15351},
-			{title: '阴阳师',src: 'images/4.jpg',count: 41351},
-			{title: '夏目友人帐',src: 'images/5.jpg',count: 51232},
-			{title: 'Fate/Zero',src: 'images/6.jpg',count: 123},
-			{title: '夏洛特',src: 'images/7.jpg',count: 153},
-		]
 		this.state.datas.forEach((value,key) => {
 			list.push(
 				<li className="comic-item" key={key} ref={'item' + key}>
 					<img className="comic-item-img" src={value.image}/>
-					<p className="comic-item-name">{value.title}</p>
+					<p onClick={this.goDetail
+
+
+
+						.bind(this,value.id)} className="comic-item-name">{value.title}</p>
+					<p className="comic-item-like"><span>{value.like}</span>人喜欢</p>
 				</li>
 			)
 		})
@@ -58,8 +91,8 @@ class Comic extends React.Component {
 					<h3	className="comic-title">
 						{title}
 					</h3>
-					<a className="comic-more">更多</a>
-					<a className="comic-count">{comic_count}个{title}</a>
+					<Link className="comic-more" to={`/comiclist`}>更多</Link>
+					<a className="comic-count">{this.state.count}个{title}</a>
 				</div>
 				<div className="comic-content">
 					<ul className="comic-list">
@@ -76,4 +109,4 @@ Comic.defaultProps = {
 
 }
 
-export default Comic
+module.exports = connect(state => state)(Comic)

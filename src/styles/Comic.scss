@@ -1,6 +1,6 @@
 @import './var.scss';
 .comic-box{
-	padding: 15px 30px;
+	padding: 30px;
 	@include platepadding;
 	.comic-header{
 		width: 100%;
@@ -26,21 +26,22 @@
 	}
 	.comic-content{
 		width: 100%;
-		height: 160px;
+		height: 198px;
 		padding-top: 15px;
 		overflow: hidden;
 		.comic-list{
 			width: 980px;
+			padding-left: 2px;
 			.comic-item{
-				width: 120px;
+				width: 108px;
 				margin-right: 20px;
 				float: left;
 				.comic-item-img{
 					width: 100%;
-					height: 110px;
+					height: 138px;
 					float: left;
 					border-radius: 2px;
-					box-shadow: 0 0 2px rgba(0,0,0,.2);
+					box-shadow: 0 0 5px rgba(0,0,0,.2);
 				}
 				.comic-item-name{
 					width: 100%;
@@ -48,7 +49,20 @@
 					float: left;
 					padding: 12px 0;
 					font-size: 16px;
+					overflow: hidden;
+					max-height: 7px;
+					margin-bottom: 10px;
 					@include ahover;
+				}
+				.comic-item-like{
+					width: 100%;
+					float: left;
+					font-size: 12px;
+					padding-bottom: 10px;
+					&>span{
+						color: $red;
+						padding-right: 2px; 
+					}
 				}
 			}
 		}	
