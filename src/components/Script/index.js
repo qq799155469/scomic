@@ -1,14 +1,40 @@
 import React from 'react'
+import { Link } from 'react-router'
+import fetch from 'isomorphic-fetch'
+import { api_addr } from '../../global/global'
 require('styles/Script.scss')
 
 class Script extends React.Component {
 	constructor(props) {
 	    super(props);
-	    
+	    this.state = {
+	    	list: []
+	    }
 	}
+
+	componentDidMount() {
+	 	let self = this
+	 	fetch(api_addr + 'blog/list_simple',{
+	 		method: 'post',
+	 		mode: 'cors',
+	 		headers: {
+	 			"Content-Type": "application/x-www-form-urlencoded"
+	 		},
+	 		body: 'start=' + 0 + '&limit=' + 9
+	 	}).then((res) => {
+	 		if(res.ok){
+	 			res.json().then((json) => {
+	 				self.setState({
+	 					list: json.data
+	 				})
+	 			})
+	 		}
+	 	})
+	}
+
 	render () {
 
-		let title = '剧本'
+		let title = '脑洞'
 
 		let count = 5261
 
@@ -26,15 +52,15 @@ class Script extends React.Component {
 			{title: '月华似练',sort: '古风',views: 2055}
 		]
 
-		datas.forEach((value,key) => {
+		this.state.list.forEach((value,key) => {
 			list.push(
 				<li className="script-item" key={key}>
-					<img className="script-item-img" src={value.src}/>
+					<img className="script-item-img" src={value.face}/>
 					<div className="script-item-content">
 						<p className="script-item-title">{value.title}</p>
 						<p className="script-item-info">
-							<span className="script-item-sort">{value.sort}</span>
-							<span className="script-item-views">{value.views}观看</span>
+							<span className="script-item-sort"><i></i>{value.author}</span>
+							<span className="script-item-views"><i></i>{value.views_count}</span>
 						</p>
 					</div>
 				</li>
@@ -47,8 +73,14 @@ class Script extends React.Component {
 					<h3	className="script-title">
 						{title}
 					</h3>
+					<p className="script-notice">
+						世界那么大，你脑洞也有那么大
+					</p>
 					<a className="script-more">更多</a>
 					<a className="script-count">{count}个{title}</a>
+					<Link className="script-edit" to={`/ScriptEdit`}>
+						写一篇，脑洞大开
+					</Link>
 				</div>
 				<div className="script-content">
 					<ul className="script-list">

@@ -16,7 +16,7 @@ class Comic extends React.Component {
 
 	componentDidMount() {
 		let self = this
-		fetch(api_addr + 'comic/list',{ method: 'post' })
+		fetch(api_addr + 'comic/list_simple',{ method: 'post' })
 			.then((res) => {
 				return res.json()
 			}).then((json) => {
@@ -61,10 +61,6 @@ class Comic extends React.Component {
 		window.location.hash = '/comicdetail/' + id
 	}
 
-	addView(id) {
-		
-	}
-
 	render () {
 
 		let title = "漫评"
@@ -76,7 +72,16 @@ class Comic extends React.Component {
 				<li className="comic-item" key={key} ref={'item' + key}>
 					<img className="comic-item-img" src={value.image}/>
 					<p onClick={this.goDetail.bind(this,value.id)} className="comic-item-name">{value.title}</p>
-					<p className="comic-item-like"><span>{value.like}</span>人喜欢</p>
+					<p className="comic-item-data">
+						<span className="comic-item-score">
+							<i></i>
+							{value.score}
+						</span>
+						<span className="comic-item-view">
+							<i></i>
+							{value.views_count}
+						</span>
+					</p>
 				</li>
 			)
 		})

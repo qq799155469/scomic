@@ -4,6 +4,7 @@ import App from 'components/Main'
 import Login from 'components/Login'
 import ComicDetail from 'components/ComicDetail'
 import StoryDetail from 'components/StoryDetail'
+import ScriptEdit from 'components/ScriptEdit'
 import ComicList from 'components/ComicList'
 import Header from 'components/Header'
 
@@ -26,6 +27,7 @@ const routes = (
 			<Route name="comicdetail" path="comicdetail/:id" component={ComicDetail} />
 			<Route name="storydetail" path="storydetail/:id" component={StoryDetail} />
 			<Route path="comiclist" component={ComicList} />
+			<Route path="ScriptEdit" component={ScriptEdit} />
 			<Redirect from='*' to='/' />
 		</Route>
 	</Router>

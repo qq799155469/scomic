@@ -23,7 +23,7 @@ class Header extends React.Component {
 		let { dispatch } = this.props
 
 		let navs_data = [
-			"漫评","剧本","微文","图解"
+			"漫评","脑洞","微文","图解"
 		]
 
 		let header_info = "在你的闲暇时光中加入一点小创意。"

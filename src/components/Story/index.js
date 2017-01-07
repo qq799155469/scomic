@@ -31,7 +31,7 @@ class Story extends React.Component {
 	}
 	render () {
 
-		let title = '细文'
+		let title = '微文'
 
 		let count = 5261
 

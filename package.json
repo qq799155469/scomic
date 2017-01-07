@@ -38,6 +38,7 @@
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^6.0.0",
     "file-loader": "^0.9.0",
+    "fs": "0.0.1-security",
     "glob": "^7.0.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
@@ -66,7 +67,9 @@
     "rimraf": "^2.4.3",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.0",
-    "url-loader": "^0.5.6",
+    "ueditor": "^1.2.0",
+    "url-loader": "^0.5.7",
+    "wangeditor": "^2.1.22",
     "webpack": "^1.12.0",
     "webpack-dev-server": "^1.12.0"
   },
